@@ -1,11 +1,14 @@
 #!/usr/bin/python3
+"""
+Lockdown module
+"""
 # Lockboxes
 
 def canUnlockAll(boxes):
-    '''
+    """
     Lockboxes
     args: boxes is a list of lists
-    '''
+    """
     if len(boxes) == 0:
         return False
 
