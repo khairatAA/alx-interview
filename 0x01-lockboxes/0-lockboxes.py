@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-Lockdown module
+Lockbox module
 """
-# Lockboxes
+
 
 def canUnlockAll(boxes):
     """
