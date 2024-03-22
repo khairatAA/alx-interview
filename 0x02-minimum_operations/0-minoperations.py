@@ -20,7 +20,7 @@ def minOperations(n):
 
     while n > 1:
         while n % divisor == 0:
-            tracker += 2
+            tracker += divisor
             n //= divisor
         divisor += 1
 
