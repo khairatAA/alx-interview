@@ -16,13 +16,12 @@ def minOperations(n):
 
     tracker = 0
 
-    file_content = 1
+    divisor = 2
 
-    while file_content <= n:
-        # if n % file_content == 0:
-        file_content *= 2
-        tracker += 1
-        # else:
-        #     return 0
+    while n > 1:
+        while n % divisor == 0:
+            tracker += 2
+            n //= divisor
+        divisor += 1
 
     return tracker
