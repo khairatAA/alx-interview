@@ -3,6 +3,7 @@
 import sys
 import re
 
+
 def log_parsing():
     """
      log_parsing: reads stdin line by line and computes metrics.
@@ -13,7 +14,8 @@ def log_parsing():
 
      Return:
     """
-    input_pattern = r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - \[(.*?)\] "GET \/projects\/260 HTTP\/1\.1" (\d{3}) (\d+)$'
+    input_pattern = r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - \[(.*?)\] '\
+        r'"GET \/projects\/260 HTTP\/1\.1" (\d{3}) (\d+)$'
     total_file_size = 0
 
     status_code = {
@@ -47,6 +49,7 @@ def log_parsing():
                             print(f'{code}: {count}')
     except BrokenPipeError:
         pass
+
 
 if __name__ == "__main__":
     log_parsing()
