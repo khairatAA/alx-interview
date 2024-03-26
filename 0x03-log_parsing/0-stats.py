@@ -2,6 +2,7 @@
 """Log parsing task"""
 import sys
 import re
+import signal
 
 
 def log_parsing():
@@ -44,11 +45,14 @@ def log_parsing():
 
                 if i % 10 == 0:
                     print(f'File size: {total_file_size}')
-                    for code, count in status_code.items():
+                    for code, count in sorted(status_code.items()):
                         if count > 0:
                             print(f'{code}: {count}')
-    except BrokenPipeError:
-        pass
+    except KeyboardInterrupt:
+        print(f'File size: {total_file_size}')
+        for code, count in sorted(status_code.items()):
+            if count > 0:
+                print(f'{code}: {count}')
 
 
 if __name__ == "__main__":
