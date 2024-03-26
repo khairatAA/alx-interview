@@ -59,6 +59,7 @@ def log_parsing():
                     }
             else:
                 line.strip()
+        print_stat(total_file_size, status_code)
     except KeyboardInterrupt:
         print_stat(total_file_size, status_code)
 
