@@ -14,19 +14,29 @@ async function StarWarsApi () {
     try {
       const data = JSON.parse(body);
       // console.log(data);
-      data.characters.forEach(charaterUrl => {
-        request(charaterUrl, (error, response, body) => {
-          if (error || response.statusCode !== 200) {
-            console.log(error);
-          }
-
-          const characterData = JSON.parse(body);
-          console.log(characterData.name);
-        });
-      });
+      const characters = data.characters;
+      printCharacterNames(characters, 0);
     } catch (error) {
       console.log(error);
     }
+  });
+}
+
+function printCharacterNames (characters, index) {
+  if (index >= characters.length) {
+    return;
+  }
+
+  request(characters[index], (error, response, body) => {
+    if (error || response.statusCode !== 200) {
+      console.error(error);
+      return;
+    }
+
+    const characterData = JSON.parse(body);
+    console.log(characterData.name);
+
+    printCharacterNames(characters, index + 1);
   });
 }
 
